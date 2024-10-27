@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = "server3/grpc";
+package grpc;
+
+// El servicio define los métodos RPC que puedes llamar.
+service Movimientos {
+    rpc RealizarOperacion (MovimientoRequest) returns (MovimientoResponse) {};
+}
+
+// Los mensajes que se usan como parámetros de entrada y salida de los métodos RPC.
+message MovimientoRequest {
+    string nro_cliente_origen = 1;
+    string nro_cliente_destino = 2;
+    string monto = 3;
+    string divisa = 4;
+    string tipo_operacion = 5;
+}
+
+message MovimientoResponse {
+    string mensaje = 1;
+}
